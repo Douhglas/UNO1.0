@@ -104,12 +104,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\ExternalSFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Usuario\Desktop\UNO_1.0\ExternalSFML\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\ExternalSFML\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Usuario\Desktop\UNO_1.0\ExternalSFML\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-main-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

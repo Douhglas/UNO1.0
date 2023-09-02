@@ -1,1 +1,22 @@
-﻿  UNO.vcxproj -> C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\x64\Debug\UNO.exe
+﻿  Game.cpp
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Game.cpp(14,83): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Game.cpp(14,54): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+  main.cpp
+  Generando código...
+  UNO.vcxproj -> C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\x64\Debug\UNO.exe
