@@ -15,7 +15,8 @@ public:
 
 	Menu(sf::RenderWindow& window);
 	~Menu();
-	void drawOptions(sf::RenderWindow* window); 
+	void drawOptions( sf::RenderWindow* window);
+	void drawOptions( int buttonNum ,sf::RenderWindow* window);
 	bool isMouseOver(int button, sf::RenderWindow& window, sf::Mouse mouse);
 	bool isButtonPressed(int button, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve);
 

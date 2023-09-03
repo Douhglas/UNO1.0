@@ -2,9 +2,12 @@
 
 Menu::Menu(sf::RenderWindow& window)
 {
-	buttons[0].initButtons(sf::Vector2f(300, 200), sf::Vector2f(window.getSize().x / 2, window.getSize().y / 4),
+	buttons[0].initButtons(sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 4),
 		getOptionTexture1());
-
+	buttons[1].initButtons(sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 2),
+		getOptionTexture1());
+	buttons[2].initButtons(sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 2),
+		getOptionTexture1());
 }
 
 Menu::~Menu()
@@ -14,7 +17,13 @@ Menu::~Menu()
 void Menu::drawOptions(sf::RenderWindow* window)
 {
 	window->draw(buttons[0].getButtonShape());
+	window->draw(buttons[1].getButtonShape());
 	
+}
+
+void Menu::drawOptions(int buttonNum, sf::RenderWindow* window)
+{
+	window->draw(buttons[2].getButtonShape());
 }
 
 bool Menu::isMouseOver(int button, sf::RenderWindow& window, sf::Mouse mouse)
