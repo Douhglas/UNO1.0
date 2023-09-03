@@ -1,7 +1,12 @@
 #include <iostream>
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/Network.hpp>
 #include "Game.h"
+#include "Menu.h"
 
 using namespace std;
 int main() {
@@ -9,10 +14,8 @@ int main() {
 	window.setFramerateLimit(60);
 	sf::Mouse mouse;
 
-	sf::RectangleShape button;
-	button.setSize(sf::Vector2f(200, 300));
-	button.setPosition(sf::Vector2f(400, 600));
-	Game Option;
+	Game game;
+	Menu menu(window);
 
 
 	while (window.isOpen()) {
@@ -25,7 +28,7 @@ int main() {
 			if (eve.type == eve.Closed) {
 				window.close();
 			}
-			if (eve.type == eve.MouseButtonPressed && Option.isButtonPressed(button, window, mouse, eve)) {
+		    if (eve.type == eve.MouseButtonPressed && menu.isButtonPressed(0,window,mouse,eve) ) {
 
 				cout << " the button has been pressed" << endl;
 			}
@@ -33,7 +36,7 @@ int main() {
 		}
 
 		window.clear();
-		window.draw(button);
+		menu.drawOptions(&window);
 		window.display();
 	}
 

@@ -4,10 +4,15 @@
 class Game
 {
 private:
-
+	sf::Texture optionTexture1;
+	sf::Texture optionTexture2;
+	sf::Texture optionTexture3;
+	sf::Texture optionTexture4;
+	sf::Texture optionTexture5;
 public:
-
-	bool isMouseOver(sf::Shape& button, sf::RenderWindow& window, sf::Mouse mouse);
-	bool isButtonPressed(sf::Shape& button, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve);
+	Game();
+	~Game();
+	sf::Texture getOptionTexture1();
+	void initTextures();
 
 };

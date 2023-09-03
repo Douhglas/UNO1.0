@@ -1,20 +1,25 @@
 #include "Game.h"
+#include <iostream>
+using namespace std;
 
-bool Game::isButtonPressed(sf::Shape& button, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve)
+Game::Game()
 {
-	if (isMouseOver(button, window, mouse) && eve.key.code == sf::Mouse::Left) {
-		return true;
-	}
-	return false;
-
+	initTextures();
 }
 
-bool Game::isMouseOver(sf::Shape& button, sf::RenderWindow& window, sf::Mouse mouse)
+Game::~Game()
 {
-	sf::Vector2f mousePosition(mouse.getPosition(window).x, mouse.getPosition(window).y);
-	if (button.getGlobalBounds().contains(mousePosition)) {
-		return true;
-	}
-	return false;
-
 }
+
+sf::Texture Game::getOptionTexture1()
+{
+	return optionTexture1;
+}
+
+void Game::initTextures()
+{
+	if (!optionTexture1.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Narizonk.jpg")) {
+		cout << " ERROR optionTexture1" << endl;
+	}
+}
+

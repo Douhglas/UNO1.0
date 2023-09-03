@@ -1,0 +1,23 @@
+#pragma once
+#include "Game.h"
+#include "MenuShape.h"
+class Menu : public Game
+{
+private:
+
+	bool singlePlayer;
+
+	bool multiplayer;
+
+	MenuShape buttons[5];
+
+public:
+
+	Menu(sf::RenderWindow& window);
+	~Menu();
+	void drawOptions(sf::RenderWindow* window); 
+	bool isMouseOver(int button, sf::RenderWindow& window, sf::Mouse mouse);
+	bool isButtonPressed(int button, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve);
+
+};
+

@@ -1,0 +1,8 @@
+﻿  Game.cpp
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Game.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  main.cpp
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\main.cpp(3,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Menu.cpp
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Game.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  MenuShape.cpp
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\MenuShape.h(2,10): fatal  error C1083: No se puede abrir el archivo incluir: 'SFML/Graphics.hpp': No such file or directory
