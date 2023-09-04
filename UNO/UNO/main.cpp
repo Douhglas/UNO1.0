@@ -8,7 +8,7 @@
 #include "Deck.h"
 #include "Game.h"
 #include "Menu.h"
-
+#include "Card.h"
 using namespace std;
 int main() {
 	sf::RenderWindow window(sf::VideoMode(1200, 900), "window", sf::Style::Close);
@@ -19,6 +19,7 @@ int main() {
 	Menu menu(window);
 
 	Deck deck(&window);
+	
 	
 
 		while (window.isOpen()) {
@@ -65,9 +66,12 @@ int main() {
 					window.close();
 
 				}
+				if (even.type == even.KeyPressed) {
 
+				}
 
 			}
+			
 
 			window.clear();
 			deck.drawDecks(&window);
