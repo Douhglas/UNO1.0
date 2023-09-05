@@ -1,7 +1,15 @@
 #include "Deck.h"
 
-Deck::Deck(sf::RenderWindow* window)
+Deck::Deck(sf::RenderWindow* window): Menu(*window)
 {
+	emptyPosLeftAux = 0;
+	emptyPosRightaux = 0;
+
+	for (int i = 0; i < 20; i++) {
+		emptyposLeft[i] = 0;
+		emptyposRight[i] = 0;
+	}
+
 	if (!playersDeckTexture.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\UNO.png")) {
 
 	}
@@ -26,6 +34,26 @@ Deck::Deck(sf::RenderWindow* window)
 
 Deck::~Deck()
 {
+}
+
+sf::RectangleShape Deck::getMainDeck()
+{
+	return mainDeck;
+}
+
+DeckShape Deck::getPlayerDeckLeft(int pos)
+{
+	return playerDeckLeft[pos];
+}
+
+DeckShape Deck::getPlayerDeckRight(int pos)
+{
+	return playerDeckRight[pos];
+}
+
+sf::Vector2u Deck::getSizeOfDecksTexture()
+{
+	return sizeOfDecksTexture;
 }
 
 void Deck::initMainDeck(sf::RenderWindow* window)
@@ -73,10 +101,10 @@ void Deck::initPlayersDecksTexture()
 
 		playerDeckRight[i].setTexture(&playersDeckTexture);
 
-		playerDeckLeft[i].setTextureRect(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+		playerDeckLeft[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
-		playerDeckRight[i].setTextureRect(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+		playerDeckRight[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
 	}
@@ -103,6 +131,14 @@ void Deck::initPlayerDeckRight()
 	}
 }
 
+void Deck::initSizeOfDecksTexture()
+{
+	sizeOfDecksTexture = playersDeckTexture.getSize();
+
+	sizeOfDecksTexture.x /= 14;
+	sizeOfDecksTexture.y /= 8;
+}
+
 void Deck::drawDecks(sf::RenderWindow* window)
 {
 
@@ -120,10 +156,110 @@ void Deck::drawDecks(sf::RenderWindow* window)
 
 }
 
-void Deck::initSizeOfDecksTexture()
+int Deck::checkEmptyPos(bool isleftTurn)
 {
-	sizeOfDecksTexture = playersDeckTexture.getSize();
+	if (isleftTurn == true) {
+		for (int i = 0; i < 20; i++) {
+			if (emptyposLeft[i] == 0) {
 
-	sizeOfDecksTexture.x /= 14;
-	sizeOfDecksTexture.y /= 8;
+				emptyposLeft[i] = 1;
+				return i;
+				break;
+			}
+		}
+	}
+	if (isleftTurn == false) {
+		for (int i = 0; i < 20; i++) {
+			if (emptyposRight[i] == 0) {
+
+				emptyposRight[i] = 1;
+				return i;
+				break;
+			}
+		}
+	}
+	
 }
+
+void Deck::setDeckPLayerTextureRect(int color, int numcard, bool isLeftTurn)
+{
+	int pos = checkEmptyPos(isLeftTurn);
+	if (isLeftTurn == true) {
+		playerDeckLeft[pos].setTextureRectt(sizeOfDecksTexture.x * numcard, sizeOfDecksTexture.y * color,
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+		playerDeckLeft[pos].setColor(color);
+
+		playerDeckLeft[pos].setNumber(numcard);
+
+		
+	}
+	if (isLeftTurn == false) {
+		playerDeckRight[pos].setTextureRectt(sizeOfDecksTexture.x * numcard, sizeOfDecksTexture.y * color,
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+		playerDeckRight[pos].setColor(color);
+
+		playerDeckRight[pos].setNumber(numcard);
+
+	
+	}
+}
+
+bool Deck::mainDeckIsPressed(sf::RenderWindow& window , sf::Mouse mouse ,sf::Event eve)
+{
+	return isButtonPressed(mainDeck,window,mouse,eve);
+}
+
+bool Deck::playerDeckIsPressed(bool isLeftTurn, int pos, sf::RenderWindow& window, sf::Mouse mouse, sf::Event eve)
+{
+	if (isLeftTurn == true) {
+
+		return isButtonPressed(playerDeckLeft[pos].getDeckShape(), window, mouse, eve);
+
+	}
+	if (isLeftTurn == false) {
+
+		return isButtonPressed(playerDeckRight[pos].getDeckShape(), window, mouse, eve);
+
+	}
+}
+
+void Deck::setCardInPile(int card , bool isLeftTurn)
+{
+	if (isLeftTurn == true) {
+		pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckLeft[card].getNumber(), sizeOfDecksTexture.y * playerDeckLeft[card].getColor(),
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+		removeCardFromPLayerDeck(card, isLeftTurn);
+		emptyposLeft[card] = 0;
+
+	}
+	if (isLeftTurn == false) {
+		pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckRight[card].getNumber(), sizeOfDecksTexture.y * playerDeckRight[card].getColor(),
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+		removeCardFromPLayerDeck(card, isLeftTurn);
+		emptyposRight[card] = 0;
+	}
+}
+
+void Deck::removeCardFromPLayerDeck(int card, bool isLeftTurn)
+{
+	if (isLeftTurn == true) {
+
+		playerDeckLeft[card].setColor(4);
+		playerDeckLeft[card].setNumber(0);
+		playerDeckLeft[card].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+	}
+	if (isLeftTurn == false) {
+
+		playerDeckRight[card].setColor(4);
+		playerDeckRight[card].setNumber(0);
+		playerDeckRight[card].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+	}
+}
+
+

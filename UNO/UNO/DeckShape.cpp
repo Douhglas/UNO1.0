@@ -4,10 +4,32 @@ using namespace std;
 
 DeckShape::DeckShape()
 {
+	color = 101;
+	number = 101;
 }
 
 DeckShape::~DeckShape()
 {
+}
+
+void DeckShape::setColor(int _color)
+{
+	color = _color;
+}
+
+void DeckShape::setNumber(int _number)
+{
+	number = _number;
+}
+
+int DeckShape::getColor()
+{
+	return color;
+}
+
+int DeckShape::getNumber()
+{
+	return number;
 }
 
 void DeckShape::initDeckShape(sf::Vector2f position, sf::Vector2f size)
@@ -28,7 +50,7 @@ void DeckShape::setTexture(sf::Texture* texture)
 
 }
 
-void DeckShape::setTextureRect(unsigned int xnumber, unsigned int ycolor, unsigned int x, unsigned int y)
+void DeckShape::setTextureRectt(unsigned int xnumber, unsigned int ycolor, unsigned int x, unsigned int y)
 {
 	deckShape.setTextureRect(sf::IntRect(xnumber, ycolor, x, y));
 }

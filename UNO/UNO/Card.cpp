@@ -2,7 +2,7 @@
 
 Card::Card(sf::RenderWindow* window) : Deck(window)
 {
-	
+	initAmountOfCards();
 }
 
 Card::~Card()
@@ -30,5 +30,46 @@ void Card::initAmountOfCards()
 		}
 	}
 }
+
+void Card::getTypeCard(int color, int numcard, bool isLeftturn)
+{
+	if (numcard == 13 || numcard == 14) {
+
+		getSpecialCardFromMainDeck(color, numcard, isLeftturn);
+
+	}
+	else {
+		if (cards[color][numcard] > 0) {
+
+			getNormalCardFromMainDeck(color, numcard, isLeftturn);
+
+		}
+	}
+}
+
+void Card::getNormalCardFromMainDeck(int color, int numcard, bool isLefTurn)
+{
+	setDeckPLayerTextureRect(color, numcard, isLefTurn);
+
+	cards[color][numcard]--;
+}
+
+void Card::getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn)
+{
+	if (numcard == 13 && colorCards > 0) {
+		setDeckPLayerTextureRect(color, numcard, isLefTurn);
+		colorCards--;
+
+	}
+	if (numcard == 14 && plusFourCards > 0) {
+
+		setDeckPLayerTextureRect(color, numcard, isLefTurn);
+
+		plusFourCards--;
+
+
+	}
+}
+
 
 

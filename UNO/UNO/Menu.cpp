@@ -35,6 +35,16 @@ bool Menu::isMouseOver(int button, sf::RenderWindow& window, sf::Mouse mouse)
 	return false;
 }
 
+bool Menu::isMouseOver(sf::RectangleShape shape, sf::RenderWindow& window, sf::Mouse mouse)
+{
+	sf::Vector2f mousePosition(mouse.getPosition(window).x, mouse.getPosition(window).y);
+	if (shape.getGlobalBounds().contains(mousePosition)) {
+		return true;
+	}
+	return false;
+	
+}
+
 bool Menu::isButtonPressed(int button, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve)
 {
 	if (isMouseOver(button, window, mouse) && eve.key.code == sf::Mouse::Left) {
@@ -42,6 +52,14 @@ bool Menu::isButtonPressed(int button, sf::RenderWindow& window, sf::Mouse& mous
 	}
 	return false;
 
+}
+
+bool Menu::isButtonPressed(sf::RectangleShape shape, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve)
+{
+	if (isMouseOver(shape, window, mouse) && eve.key.code == sf::Mouse::Left) {
+		return true;
+	}
+	return false;
 }
 
 

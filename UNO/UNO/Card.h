@@ -24,7 +24,11 @@ public:
 	 
 	void initAmountOfCards();
 
+	void getTypeCard(int color, int numcard, bool isLeftturn);
 	
+	void getNormalCardFromMainDeck(int color, int numcard, bool isLefTurn);
+
+	void getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn);
 
 };
 

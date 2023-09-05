@@ -5,7 +5,9 @@ class DeckShape
 {
 private:
 
-	sf::Vector2i number;
+	int number;
+
+	int color;
 
 	sf::RectangleShape deckShape;
 	
@@ -15,6 +17,14 @@ public:
 
 	~DeckShape();
 
+	void setColor(int _color);
+
+	void setNumber(int _number);
+
+	int getColor();
+
+	int getNumber();
+
 	void initDeckShape(sf::Vector2f position, sf::Vector2f size );
 
 	void initDeckShape(string texture);
@@ -23,7 +33,7 @@ public:
 
 	void setTexture(sf::Texture* texture);
 
-	void setTextureRect(unsigned int xnumber, unsigned int ynumber,unsigned int x,unsigned int y);
+	void setTextureRectt(unsigned int xnumber, unsigned int ynumber,unsigned int x,unsigned int y);
 	
 
 };
