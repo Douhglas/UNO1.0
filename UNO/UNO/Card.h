@@ -30,5 +30,7 @@ public:
 
 	void getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn);
 
+	
+
 };
 

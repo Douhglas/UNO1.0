@@ -70,7 +70,7 @@ int main() {
 				sf::Event even;
 
 				color = rand() % 4;
-				numCard = rand() % 14;
+				numCard = rand() % 15;
 
 				while (window.pollEvent(even)) {
 

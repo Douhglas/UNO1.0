@@ -69,6 +69,9 @@ void Deck::initPile(sf::RenderWindow* window)
 {
 	pile.initDeckShape(sf::Vector2f(window->getSize().x / 2 + 25, window->getSize().y / 6), sf::Vector2f(150, 200));
 	pile.setTexture(&playersDeckTexture);
+	pile.setColor(1);
+	pile.setNumber(5);
+	pile.setTextureRectt(sizeOfDecksTexture.x * 4, sizeOfDecksTexture.y * 0, sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 }
 
 void Deck::initPlayerDeckLeft()
@@ -227,18 +230,36 @@ bool Deck::playerDeckIsPressed(bool isLeftTurn, int pos, sf::RenderWindow& windo
 
 void Deck::setCardInPile(int card , bool isLeftTurn)
 {
+	
 	if (isLeftTurn == true) {
-		pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckLeft[card].getNumber(), sizeOfDecksTexture.y * playerDeckLeft[card].getColor(),
-			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
-		removeCardFromPLayerDeck(card, isLeftTurn);
-		emptyposLeft[card] = 0;
+		if (pile.getColor() == playerDeckLeft[card].getColor() ||  pile.getNumber() == playerDeckLeft[card].getNumber()) {
 
+			pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckLeft[card].getNumber(), sizeOfDecksTexture.y * playerDeckLeft[card].getColor(),
+				sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+			pile.setColor(playerDeckLeft[card].getColor());
+
+			pile.setNumber(playerDeckLeft[card].getNumber());
+
+			removeCardFromPLayerDeck(card, isLeftTurn);
+
+			emptyposLeft[card] = 0;
+		}
 	}
 	if (isLeftTurn == false) {
-		pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckRight[card].getNumber(), sizeOfDecksTexture.y * playerDeckRight[card].getColor(),
-			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
-		removeCardFromPLayerDeck(card, isLeftTurn);
-		emptyposRight[card] = 0;
+		if (playerDeckRight[card].getColor() == pile.getColor() || playerDeckRight[card].getNumber() == pile.getNumber()){
+
+			pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckRight[card].getNumber(), sizeOfDecksTexture.y * playerDeckRight[card].getColor(),
+				sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+			pile.setColor(playerDeckRight[card].getColor());
+
+			pile.setNumber(playerDeckRight[card].getNumber());
+
+			removeCardFromPLayerDeck(card, isLeftTurn);
+
+			emptyposRight[card] = 0;
+		}
 	}
 }
 

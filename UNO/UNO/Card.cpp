@@ -63,7 +63,7 @@ void Card::getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn)
 	}
 	if (numcard == 14 && plusFourCards > 0) {
 
-		setDeckPLayerTextureRect(color, numcard, isLefTurn);
+		setDeckPLayerTextureRect(5, 13, isLefTurn);
 
 		plusFourCards--;
 
