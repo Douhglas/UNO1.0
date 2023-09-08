@@ -1,6 +1,6 @@
 #include "Card.h"
 
-Card::Card(sf::RenderWindow* window) : Deck(window)
+Card::Card(sf::RenderWindow* window ) : Deck(window)
 {
 	initAmountOfCards();
 }
@@ -70,6 +70,15 @@ void Card::getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn)
 
 	}
 }
+
+void Card::initPileCard(int color, int numcard)
+{
+	initFirstPileCard(color, numcard);
+
+	cards[color][numcard] --;
+
+}
+
 
 
 

@@ -21,7 +21,7 @@ public:
 	Card(sf::RenderWindow* window);
 
 	~Card();
-	 
+
 	void initAmountOfCards();
 
 	void getTypeCard(int color, int numcard, bool isLeftturn);
@@ -29,6 +29,8 @@ public:
 	void getNormalCardFromMainDeck(int color, int numcard, bool isLefTurn);
 
 	void getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn);
+
+	void initPileCard(int color , int numcard);
 
 	
 

@@ -22,6 +22,13 @@ Deck::Deck(sf::RenderWindow* window): Menu(*window)
 
 	initPile(window);
 
+	pile.setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+		sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+	pile.setColor(0);
+
+	pile.setNumber(0);
+
 	initSizeOfDecksTexture();
 
 	initPlayerDeckLeft();
@@ -41,19 +48,20 @@ sf::RectangleShape Deck::getMainDeck()
 	return mainDeck;
 }
 
-DeckShape Deck::getPlayerDeckLeft(int pos)
-{
-	return playerDeckLeft[pos];
-}
-
-DeckShape Deck::getPlayerDeckRight(int pos)
-{
-	return playerDeckRight[pos];
-}
-
 sf::Vector2u Deck::getSizeOfDecksTexture()
 {
 	return sizeOfDecksTexture;
+}
+
+void Deck::initFirstPileCard(int color, int number)
+{
+	pile.setTextureRectt(sizeOfDecksTexture.x * number, sizeOfDecksTexture.y * color,
+		sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+	pile.setColor(color);
+
+	pile.setNumber(number);
+	
 }
 
 void Deck::initMainDeck(sf::RenderWindow* window)
@@ -69,9 +77,7 @@ void Deck::initPile(sf::RenderWindow* window)
 {
 	pile.initDeckShape(sf::Vector2f(window->getSize().x / 2 + 25, window->getSize().y / 6), sf::Vector2f(150, 200));
 	pile.setTexture(&playersDeckTexture);
-	pile.setColor(1);
-	pile.setNumber(5);
-	pile.setTextureRectt(sizeOfDecksTexture.x * 4, sizeOfDecksTexture.y * 0, sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+	
 }
 
 void Deck::initPlayerDeckLeft()
@@ -282,5 +288,7 @@ void Deck::removeCardFromPLayerDeck(int card, bool isLeftTurn)
 
 	}
 }
+
+
 
 

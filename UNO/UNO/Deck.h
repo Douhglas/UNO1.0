@@ -57,6 +57,8 @@ public:
 
 	sf::Vector2u getSizeOfDecksTexture();
 
+	void initFirstPileCard(int color ,int number);
+
 	void drawDecks(sf::RenderWindow* window);
 
 	int checkEmptyPos(bool isleftTurn);
@@ -70,5 +72,7 @@ public:
 	void setCardInPile(int card , bool isLeftTurn);
 
 	void removeCardFromPLayerDeck(int card, bool isLeftTurn);
+
+	void initDeckPlayersCards();
 };
 

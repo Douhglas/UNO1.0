@@ -1,10 +1,7 @@
 #include <iostream>
-
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
-#include <SFML/Network.hpp>
 #include <time.h>
 #include "Deck.h"
 #include "Game.h"
@@ -20,13 +17,13 @@ int main() {
 	sf::Mouse mouse;
 	bool unoWindow = false;
 
-
-	Menu menu(window);
 	Card card(&window);
 	
 	bool isLeftTurn = true;
 	int color;
 	int numCard;
+	bool startGame = false;
+
 
 		while (window.isOpen()) {
 
@@ -40,12 +37,12 @@ int main() {
 					window.close();
 
 				}
-				if (eve.type == eve.MouseButtonPressed && menu.isButtonPressed(0, window, mouse, eve)) {
+				if (eve.type == eve.MouseButtonPressed && card.isButtonPressed(0, window, mouse, eve)) {
 
 					cout << " the button has been pressed" << endl;
 
 				}
-				if (eve.type == eve.MouseButtonPressed && menu.isButtonPressed(1, window, mouse, eve)) {
+				if (eve.type == eve.MouseButtonPressed && card.isButtonPressed(1, window, mouse, eve)) {
 
 					window.close();
 					unoWindow = true;
@@ -54,16 +51,13 @@ int main() {
 			}
 
 			window.clear();
-			menu.drawOptions(&window);
+			card.drawOptions(&window);
 			window.display();
 		}
-
-
 
 		if (unoWindow == true) {
 
 			window.create(sf::VideoMode(1200, 900), "UNO");
-
 			while (window.isOpen())
 			{
 
@@ -78,6 +72,10 @@ int main() {
 
 						window.close();
 
+					}
+					if (even.type == even.MouseButtonPressed && card.isButtonPressed(2, window, mouse, even)) {
+						card.initPileCard(color, numCard);
+						startGame = true;
 					}
 					if (even.type == even.MouseButtonPressed) {
 						if (card.mainDeckIsPressed(window, mouse, even)) {
@@ -103,10 +101,15 @@ int main() {
 					}
 				}
 
-
 				window.clear();
-				card.drawDecks(&window);
-				menu.drawOptions(1, &window);
+
+				if (startGame) {
+					card.drawDecks(&window);
+				}
+				else {
+					card.drawOptions(1, &window);
+				}
+
 				window.display();
 
 			}
