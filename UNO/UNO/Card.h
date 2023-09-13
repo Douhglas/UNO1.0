@@ -1,5 +1,6 @@
 #pragma once
 #include "Deck.h"
+#include <time.h>
 
 class Card: public Deck
 {
@@ -14,6 +15,8 @@ private:
 	int plusFourCards = 4;
 
 	int cards[AMOUNT_OF_COLORS][AMOUNT_OF_CARDS];
+
+	sf::Vector2i randomCard;
 
 	
 public:
@@ -32,7 +35,6 @@ public:
 
 	void initPileCard(int color , int numcard);
 
-	
 
 };
 

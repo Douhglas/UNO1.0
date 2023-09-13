@@ -1,25 +1,15 @@
-﻿  Card.cpp
-  Deck.cpp
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(71,73): warning C4244: 'argumento': conversión de 'T' a 'float'; posible pérdida de datos
+﻿  Deck.cpp
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(82,73): warning C4244: 'argumento': conversión de 'T' a 'float'; posible pérdida de datos
           with
           [
               T=unsigned int
           ]
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(71,47): warning C4244: 'argumento': conversión de 'T' a 'float'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(82,47): warning C4244: 'argumento': conversión de 'T' a 'float'; posible pérdida de datos
           with
           [
               T=unsigned int
           ]
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(78,84): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(78,58): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(89,84): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
           with
           [
               T=unsigned int
@@ -28,10 +18,15 @@ C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(78,58): warning C4244: 
           [
               T=float
           ]
-  Rule.cpp
-  main.cpp
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\main.cpp(13,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Generando código...
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(191): warning C4715: 'Deck::checkEmptyPos': no todas las rutas de acceso de control devuelven un valor
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(235): warning C4715: 'Deck::playerDeckIsPressed': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(89,58): warning C4244: 'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+          with
+          [
+              T=unsigned int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(203): warning C4715: 'Deck::checkEmptyPos': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\Deck.cpp(247): warning C4715: 'Deck::playerDeckIsPressed': no todas las rutas de acceso de control devuelven un valor
   UNO.vcxproj -> C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\x64\Debug\UNO.exe

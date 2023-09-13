@@ -55,13 +55,24 @@ sf::Vector2u Deck::getSizeOfDecksTexture()
 
 void Deck::initFirstPileCard(int color, int number)
 {
-	pile.setTextureRectt(sizeOfDecksTexture.x * number, sizeOfDecksTexture.y * color,
-		sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+	if (number == 14) {
 
-	pile.setColor(color);
+		pile.setTextureRectt(sizeOfDecksTexture.x * 13, sizeOfDecksTexture.y * 5,
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
-	pile.setNumber(number);
-	
+		pile.setColor(0);
+
+		pile.setNumber(14);
+
+	}
+	else {
+		pile.setTextureRectt(sizeOfDecksTexture.x * number, sizeOfDecksTexture.y * color,
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+		pile.setColor(color);
+
+		pile.setNumber(number);
+	}
 }
 
 void Deck::initMainDeck(sf::RenderWindow* window)
@@ -110,10 +121,10 @@ void Deck::initPlayersDecksTexture()
 
 		playerDeckRight[i].setTexture(&playersDeckTexture);
 
-		playerDeckLeft[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+		playerDeckLeft[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 5,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
-		playerDeckRight[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+		playerDeckRight[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 5,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
 	}
@@ -146,6 +157,7 @@ void Deck::initSizeOfDecksTexture()
 
 	sizeOfDecksTexture.x /= 14;
 	sizeOfDecksTexture.y /= 8;
+
 }
 
 void Deck::drawDecks(sf::RenderWindow* window)
@@ -238,8 +250,6 @@ void Deck::setCardInPile(int card , bool isLeftTurn)
 {
 	
 	if (isLeftTurn == true) {
-		if (pile.getColor() == playerDeckLeft[card].getColor() ||  pile.getNumber() == playerDeckLeft[card].getNumber()) {
-
 			pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckLeft[card].getNumber(), sizeOfDecksTexture.y * playerDeckLeft[card].getColor(),
 				sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
@@ -250,10 +260,8 @@ void Deck::setCardInPile(int card , bool isLeftTurn)
 			removeCardFromPLayerDeck(card, isLeftTurn);
 
 			emptyposLeft[card] = 0;
-		}
 	}
 	if (isLeftTurn == false) {
-		if (playerDeckRight[card].getColor() == pile.getColor() || playerDeckRight[card].getNumber() == pile.getNumber()){
 
 			pile.setTextureRectt(sizeOfDecksTexture.x * playerDeckRight[card].getNumber(), sizeOfDecksTexture.y * playerDeckRight[card].getColor(),
 				sizeOfDecksTexture.x, sizeOfDecksTexture.y);
@@ -265,7 +273,7 @@ void Deck::setCardInPile(int card , bool isLeftTurn)
 			removeCardFromPLayerDeck(card, isLeftTurn);
 
 			emptyposRight[card] = 0;
-		}
+
 	}
 }
 
@@ -287,6 +295,34 @@ void Deck::removeCardFromPLayerDeck(int card, bool isLeftTurn)
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
 	}
+}
+
+void Deck::checkValidCard(int card, bool isLeftTurn, int& atleastOneCard)
+{
+	if (isLeftTurn == true) {
+		if (((pile.getColor() == playerDeckLeft[card].getColor() || pile.getNumber() == playerDeckLeft[card].getNumber()) &&
+			playerDeckLeft[card].getColor() != 5) || (playerDeckLeft[card].getNumber() == 13 || playerDeckLeft[card].getNumber() == 14)) {
+               
+			setCardInPile(card,isLeftTurn);
+
+			atleastOneCard++;
+
+		}
+	}
+	if (isLeftTurn == false) {
+		if (((playerDeckRight[card].getColor() == pile.getColor() || playerDeckRight[card].getNumber() == pile.getNumber()) &&
+			playerDeckRight[card].getColor() != 5) || (playerDeckRight[card].getNumber() == 13 || playerDeckRight[card].getNumber() == 14)) {
+
+			setCardInPile(card, isLeftTurn);
+
+			atleastOneCard++;
+		}
+	}
+}
+
+void Deck::printPileColorAnsNUmber()
+{
+	cout << pile.getColor() << "    " << pile.getNumber() << endl;
 }
 
 

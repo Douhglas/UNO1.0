@@ -16,10 +16,14 @@ void Card::initAmountOfCards()
 
 			cards[i][j] = 2;
 
-			if (j == 0 || j == 13 || j == 14) {
+			if (j == 0 ) {
 
 				cards[i][j] = 1;
 
+			}
+			if (j == 13 || j == 14){
+
+				cards[i][j] = 4;
 			}
 			else {
 
@@ -33,15 +37,16 @@ void Card::initAmountOfCards()
 
 void Card::getTypeCard(int color, int numcard, bool isLeftturn)
 {
+	
 	if (numcard == 13 || numcard == 14) {
 
-		getSpecialCardFromMainDeck(color, numcard, isLeftturn);
+		getSpecialCardFromMainDeck(color, numcard,isLeftturn);
 
 	}
 	else {
 		if (cards[color][numcard] > 0) {
 
-			getNormalCardFromMainDeck(color, numcard, isLeftturn);
+			getNormalCardFromMainDeck(color, numcard,isLeftturn);
 
 		}
 	}
@@ -56,16 +61,24 @@ void Card::getNormalCardFromMainDeck(int color, int numcard, bool isLefTurn)
 
 void Card::getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn)
 {
-	if (numcard == 13 && colorCards > 0) {
+	if (numcard == 13 && cards[color][numcard] > 0) {
+
 		setDeckPLayerTextureRect(color, numcard, isLefTurn);
-		colorCards--;
+
+		cards[0][numcard]--;
+		cards[1][numcard]--;
+		cards[2][numcard]--;
+		cards[3][numcard]--;
 
 	}
-	if (numcard == 14 && plusFourCards > 0) {
+	if (numcard == 14 && cards[color][numcard] > 0) {
 
 		setDeckPLayerTextureRect(5, 13, isLefTurn);
 
-		plusFourCards--;
+		cards[0][numcard]--;
+		cards[1][numcard]--;
+		cards[2][numcard]--;
+		cards[3][numcard]--;
 
 
 	}
@@ -78,7 +91,6 @@ void Card::initPileCard(int color, int numcard)
 	cards[color][numcard] --;
 
 }
-
 
 
 

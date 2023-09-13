@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include "DeckShape.h"
 #include "Menu.h"
@@ -43,6 +44,8 @@ private:
 
 	void initSizeOfDecksTexture();
 
+
+
 public:
 
 	Deck(sf::RenderWindow* window);
@@ -74,5 +77,9 @@ public:
 	void removeCardFromPLayerDeck(int card, bool isLeftTurn);
 
 	void initDeckPlayersCards();
+
+	void checkValidCard(int card, bool isLeftTurn , int& atleastOneCard);
+
+	void printPileColorAnsNUmber();
 };
 

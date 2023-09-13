@@ -23,7 +23,7 @@ int main() {
 	int color;
 	int numCard;
 	bool startGame = false;
-
+	int atLeastOneCard = 0;
 
 		while (window.isOpen()) {
 
@@ -67,14 +67,14 @@ int main() {
 				numCard = rand() % 15;
 
 				while (window.pollEvent(even)) {
-
+					
 					if (even.type == even.Closed) {
 
 						window.close();
 
 					}
 					if (even.type == even.MouseButtonPressed && card.isButtonPressed(2, window, mouse, even)) {
-						card.initPileCard(color, numCard);
+						card.initPileCard(color,numCard );
 						startGame = true;
 					}
 					if (even.type == even.MouseButtonPressed) {
@@ -84,18 +84,26 @@ int main() {
 					}
 					if (even.type == even.KeyPressed) {
 						if (even.key.code == sf::Keyboard::Enter) {
-							if (isLeftTurn == true) {
+							if (isLeftTurn == true && atLeastOneCard != 0) {
 								isLeftTurn = false;
+								atLeastOneCard = 0;
 							}
-							else {
+							if (isLeftTurn == false && atLeastOneCard !=0) {
 								isLeftTurn = true;
+								atLeastOneCard = 0;
 							}
+						}
+					}
+					if (even.type == even.KeyPressed) {
+						if (even.key.code == sf::Keyboard::A) {
+							card.printPileColorAnsNUmber();
 						}
 					}
 					if (even.type == even.MouseButtonPressed) {
 						for (int i = 0; i < 20; i++) {
 							if (card.playerDeckIsPressed(isLeftTurn,i,window, mouse, even)) {
-								card.setCardInPile(i, isLeftTurn);
+								card.checkValidCard(i, isLeftTurn, atLeastOneCard);
+								
 							}
 						}
 					}
