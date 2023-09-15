@@ -325,6 +325,22 @@ void Deck::printPileColorAnsNUmber()
 	cout << pile.getColor() << "    " << pile.getNumber() << endl;
 }
 
+void Deck::checkStatementColorChange()
+{
+	
+	if (pile.getNumber() == 13) {
+		int newColor = 0;
+		cout << "New color" << endl;
+		cout << "0 == red" << endl;
+		cout << "1 == yellow" << endl;
+		cout << "2 == green" << endl;
+		cout << "3 == blue" << endl;
+		cin >> newColor;
+		pile.setColor(newColor);
+		pile.setNumber(15);
+	}
+}
+
 
 
 

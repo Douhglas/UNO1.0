@@ -10,13 +10,10 @@ private:
 
 	static const int AMOUNT_OF_CARDS = 15;
 
-	int colorCards = 4;
-
-	int plusFourCards = 4;
-
 	int cards[AMOUNT_OF_COLORS][AMOUNT_OF_CARDS];
 
-	sf::Vector2i randomCard;
+
+
 
 	
 public:

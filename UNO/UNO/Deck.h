@@ -81,5 +81,8 @@ public:
 	void checkValidCard(int card, bool isLeftTurn , int& atleastOneCard);
 
 	void printPileColorAnsNUmber();
+
+	void checkStatementColorChange();
+
 };
 

@@ -60,11 +60,13 @@ int main() {
 			window.create(sf::VideoMode(1200, 900), "UNO");
 			while (window.isOpen())
 			{
-
+				card.checkStatementColorChange();
 				sf::Event even;
 
 				color = rand() % 4;
 				numCard = rand() % 15;
+
+			
 
 				while (window.pollEvent(even)) {
 					
@@ -87,10 +89,12 @@ int main() {
 							if (isLeftTurn == true && atLeastOneCard != 0) {
 								isLeftTurn = false;
 								atLeastOneCard = 0;
+						
 							}
 							if (isLeftTurn == false && atLeastOneCard !=0) {
 								isLeftTurn = true;
 								atLeastOneCard = 0;
+								
 							}
 						}
 					}
