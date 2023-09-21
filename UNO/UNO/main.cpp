@@ -7,6 +7,12 @@
 #include "Game.h"
 #include "Menu.h"
 #include "Card.h"
+
+// card functions
+// init 8 cards per deck
+//change buttons texture
+//UNO button
+
 using namespace std;
 int main() {
 
@@ -20,10 +26,15 @@ int main() {
 	Card card(&window);
 	
 	bool isLeftTurn = true;
+	int CardsOfTheSameNumberPerTurn = 0;
+	int pluscCardLimitperTurn = 0;
+	int plusCardStatement = 0;
 	int color;
 	int numCard;
 	bool startGame = false;
 	int atLeastOneCard = 0;
+
+
 
 		while (window.isOpen()) {
 
@@ -86,14 +97,26 @@ int main() {
 					}
 					if (even.type == even.KeyPressed) {
 						if (even.key.code == sf::Keyboard::Enter) {
-							if (isLeftTurn == true && atLeastOneCard != 0) {
+							if ((isLeftTurn == true && atLeastOneCard != 0) && card.isNotCardsToEat() == true ||
+							((isLeftTurn == true && atLeastOneCard != 0) && (card.getPile().getNumber() == 12 || card.getPile().getNumber() == 16))){
+
 								isLeftTurn = false;
 								atLeastOneCard = 0;
+								CardsOfTheSameNumberPerTurn = 0;
+								
+								card.checklimitPlusCard(pluscCardLimitperTurn);
+								card.checkStatementPlusCard(pluscCardLimitperTurn);
 						
 							}
-							if (isLeftTurn == false && atLeastOneCard !=0) {
+							if ((isLeftTurn == false && atLeastOneCard != 0)&& card.isNotCardsToEat() == true ||
+							((isLeftTurn == false && atLeastOneCard != 0) && (card.getPile().getNumber() == 12 || card.getPile().getNumber() == 16))){
+
 								isLeftTurn = true;
+								CardsOfTheSameNumberPerTurn = 0;
 								atLeastOneCard = 0;
+
+								card.checklimitPlusCard(pluscCardLimitperTurn);
+								card.checkStatementPlusCard(pluscCardLimitperTurn);
 								
 							}
 						}
@@ -101,13 +124,20 @@ int main() {
 					if (even.type == even.KeyPressed) {
 						if (even.key.code == sf::Keyboard::A) {
 							card.printPileColorAnsNUmber();
+							card.showCardsToEat(isLeftTurn);
 						}
 					}
 					if (even.type == even.MouseButtonPressed) {
-						for (int i = 0; i < 20; i++) {
-							if (card.playerDeckIsPressed(isLeftTurn,i,window, mouse, even)) {
-								card.checkValidCard(i, isLeftTurn, atLeastOneCard);
-								
+						for (int i = 0; i < 20; i++){ 
+							{
+							    if (card.playerDeckIsPressed(isLeftTurn,i,window, mouse, even)) {
+								  card.printPileColorAnsNUmber(i, isLeftTurn);
+								      if (card.isNotCardsToEat() || card.isCounterPlusCards(i, isLeftTurn)) {
+
+									   card.checkValidCard(i, isLeftTurn, atLeastOneCard,CardsOfTheSameNumberPerTurn,pluscCardLimitperTurn);
+ 
+								      }
+								}
 							}
 						}
 					}

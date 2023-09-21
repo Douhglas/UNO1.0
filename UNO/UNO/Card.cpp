@@ -3,6 +3,8 @@
 Card::Card(sf::RenderWindow* window ) : Deck(window)
 {
 	initAmountOfCards();
+
+	numberOfCardsToEat = 0;
 }
 
 Card::~Card()
@@ -57,6 +59,10 @@ void Card::getNormalCardFromMainDeck(int color, int numcard, bool isLefTurn)
 	setDeckPLayerTextureRect(color, numcard, isLefTurn);
 
 	cards[color][numcard]--;
+
+	if (numberOfCardsToEat > 0) {
+		numberOfCardsToEat--;
+	}
 }
 
 void Card::getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn)
@@ -69,6 +75,9 @@ void Card::getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn)
 		cards[1][numcard]--;
 		cards[2][numcard]--;
 		cards[3][numcard]--;
+		if (numberOfCardsToEat > 0) {
+			numberOfCardsToEat--;
+		}
 
 	}
 	if (numcard == 14 && cards[color][numcard] > 0) {
@@ -79,7 +88,9 @@ void Card::getSpecialCardFromMainDeck(int color, int numcard, bool isLefTurn)
 		cards[1][numcard]--;
 		cards[2][numcard]--;
 		cards[3][numcard]--;
-
+		if (numberOfCardsToEat > 0) {
+			numberOfCardsToEat--;
+		}
 
 	}
 }
@@ -89,7 +100,47 @@ void Card::initPileCard(int color, int numcard)
 	initFirstPileCard(color, numcard);
 
 	cards[color][numcard] --;
+	
 
+}
+
+bool Card::isNotCardsToEat()
+{
+	if (numberOfCardsToEat == 0){
+		return true;
+}
+	return false;
+}
+
+void Card::showCardsToEat(bool isLeftTurn)
+{
+	cout << numberOfCardsToEat << endl;
+	if (isLeftTurn) {
+		cout << "Left Turn" << endl;
+		
+	}
+	else {
+		cout << "Right Turn" << endl;
+	}
+}
+
+void Card::checklimitPlusCard(int& plusCardLimitPerTurn)
+{
+	if (plusCardLimitPerTurn == 1) {
+		plusCardLimitPerTurn = 0;
+	}
+}
+
+void Card::checkStatementPlusCard(int& plusCardLimitPerTurn)
+{
+	if (getPile().getNumber() == 12) {
+		numberOfCardsToEat += 2;
+		plusCardLimitPerTurn = 1;
+
+	}
+	if(getPile().getNumber() == 16){
+		numberOfCardsToEat += 4;
+	}
 }
 
 

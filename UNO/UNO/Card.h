@@ -12,15 +12,17 @@ private:
 
 	int cards[AMOUNT_OF_COLORS][AMOUNT_OF_CARDS];
 
+	int numberOfCardsToEat;
 
-
-
+	int plusCardLimitPerTurn;
 	
 public:
 
 	Card(sf::RenderWindow* window);
 
 	~Card();
+
+	int getNumberOfCardsToEat();
 
 	void initAmountOfCards();
 
@@ -32,6 +34,12 @@ public:
 
 	void initPileCard(int color , int numcard);
 
+	void checkStatementPlusCard(int& plusCardLimitPerTurn);
 
+	bool isNotCardsToEat();
+
+	void showCardsToEat(bool isLeftTurn);
+
+	void checklimitPlusCard(int& plusCardLimitPerTurn);
 };
 

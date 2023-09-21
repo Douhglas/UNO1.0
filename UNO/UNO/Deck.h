@@ -10,11 +10,7 @@ private:
 
 	int emptyposLeft[20];
 
-	int emptyPosLeftAux;
-
 	int emptyposRight[20];
-
-	int emptyPosRightaux;
 
 	sf::Texture MainDeckTexture;
 
@@ -46,6 +42,8 @@ private:
 
 
 
+
+
 public:
 
 	Deck(sf::RenderWindow* window);
@@ -53,6 +51,8 @@ public:
 	~Deck();
 
 	sf::RectangleShape getMainDeck();
+
+	DeckShape getPile();
 
 	DeckShape getPlayerDeckLeft(int pos);
 
@@ -78,11 +78,18 @@ public:
 
 	void initDeckPlayersCards();
 
-	void checkValidCard(int card, bool isLeftTurn , int& atleastOneCard);
+	void checkValidCard(int card, bool isLeftTurn , int& atleastOneCard, int& CardsOfTheSameNumberPerTurn, int& PlusCardLimitPerTurn);
 
 	void printPileColorAnsNUmber();
+	void printPileColorAnsNUmber(int i,bool isLeftTurn);
 
 	void checkStatementColorChange();
+
+	bool isCounterPlusCards(int pos, bool isLeftTurn);
+
+	void setSpecialCardInPile(int card,bool isLeftTurn, int& atleastOneCard, int& CardsOfTheSameNumberPerTurn, int& PlusCardLimitPerTurn);
+
+	void setNormalCardInPile(int card , bool isLeftTurn , int& atleastOneCard, int& CardsOfTheSameNumberPerTurn);
 
 };
 
