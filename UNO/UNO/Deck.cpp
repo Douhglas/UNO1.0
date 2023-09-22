@@ -107,12 +107,12 @@ void Deck::initPlayerDeckLeft()
 		
 		for (int j = 0; j < 5; j++) {
 
-			playerDeckLeft[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 85), decksPos.y), sf::Vector2f(80, 100));
+			playerDeckLeft[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 75), decksPos.y), sf::Vector2f(70,90));
 			aux++;
 
 		}
 
-		decksPos.y += 105;
+		decksPos.y += 95;
 	}
 }
 
@@ -146,11 +146,11 @@ void Deck::initPlayerDeckRight()
 
 		for (int j = 0; j < 5; j++) {
 
-			playerDeckRight[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 85), decksPos.y),sf::Vector2f(80,100));
+			playerDeckRight[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 75), decksPos.y),sf::Vector2f(70,90));
 
 			aux++;
 		}
-		decksPos.y += 105;
+		decksPos.y += 95;
 	}
 }
 

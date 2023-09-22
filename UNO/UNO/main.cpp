@@ -106,7 +106,7 @@ int main() {
 								
 								card.checklimitPlusCard(pluscCardLimitperTurn);
 								card.checkStatementPlusCard(pluscCardLimitperTurn);
-								if (card.getPile().getNumber() == 10) {
+								if (card.getPile().getNumber() == 10 || card.getPile().getNumber() == 11) {
 									card.checkLostTurnCard(isLeftTurn);
 								}
 						
@@ -120,7 +120,7 @@ int main() {
 
 								card.checklimitPlusCard(pluscCardLimitperTurn);
 								card.checkStatementPlusCard(pluscCardLimitperTurn);
-								if (card.getPile().getNumber() == 10) {
+								if (card.getPile().getNumber() == 10 || card.getPile().getNumber() == 11) {
 									card.checkLostTurnCard(isLeftTurn);
 								}
 								
