@@ -106,6 +106,9 @@ int main() {
 								
 								card.checklimitPlusCard(pluscCardLimitperTurn);
 								card.checkStatementPlusCard(pluscCardLimitperTurn);
+								if (card.getPile().getNumber() == 10) {
+									card.checkLostTurnCard(isLeftTurn);
+								}
 						
 							}
 							if ((isLeftTurn == false && atLeastOneCard != 0)&& card.isNotCardsToEat() == true ||
@@ -117,6 +120,9 @@ int main() {
 
 								card.checklimitPlusCard(pluscCardLimitperTurn);
 								card.checkStatementPlusCard(pluscCardLimitperTurn);
+								if (card.getPile().getNumber() == 10) {
+									card.checkLostTurnCard(isLeftTurn);
+								}
 								
 							}
 						}
@@ -124,7 +130,7 @@ int main() {
 					if (even.type == even.KeyPressed) {
 						if (even.key.code == sf::Keyboard::A) {
 							card.printPileColorAnsNUmber();
-							card.showCardsToEat(isLeftTurn);
+							card.showCardsToEat(isLeftTurn,atLeastOneCard);
 						}
 					}
 					if (even.type == even.MouseButtonPressed) {

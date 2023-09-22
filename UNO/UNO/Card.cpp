@@ -112,15 +112,28 @@ bool Card::isNotCardsToEat()
 	return false;
 }
 
-void Card::showCardsToEat(bool isLeftTurn)
+void Card::showCardsToEat(bool isLeftTurn,int atleastOneCard)
 {
 	cout << numberOfCardsToEat << endl;
+	cout << atleastOneCard << endl;
 	if (isLeftTurn) {
 		cout << "Left Turn" << endl;
 		
 	}
 	else {
 		cout << "Right Turn" << endl;
+	}
+}
+
+void Card::checkLostTurnCard(bool& isLeftTurn)
+{
+	if (isLeftTurn == true) {
+
+		isLeftTurn = false;
+    }
+	else{
+
+		isLeftTurn = true;
 	}
 }
 

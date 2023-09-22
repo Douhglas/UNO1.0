@@ -38,8 +38,10 @@ public:
 
 	bool isNotCardsToEat();
 
-	void showCardsToEat(bool isLeftTurn);
+	void showCardsToEat(bool isLeftTurn, int atleastOneCard);
 
 	void checklimitPlusCard(int& plusCardLimitPerTurn);
+
+	void checkLostTurnCard(bool& isLeftTurn);
 };
 

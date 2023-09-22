@@ -461,25 +461,25 @@ void Deck::setSpecialCardInPile(int card, bool isLeftTurn, int& atleastOneCard, 
 	if (isLeftTurn == false) {
 
 		if (playerDeckRight[card].getNumber() == 0 && ((playerDeckRight[card].getColor() == pile.getColor() ||
-			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 12)) {
+			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 11)) {
 
 			setCardInPile(card, isLeftTurn);
 			atleastOneCard++;
 		}
 		if (playerDeckRight[card].getNumber() == 10 && ((playerDeckRight[card].getColor() == pile.getColor() ||
-			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 12)) {
+			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 11)) {
 
 			setCardInPile(card, isLeftTurn);
 			atleastOneCard++;
 		}
 		if (playerDeckRight[card].getNumber() == 11 && ((playerDeckRight[card].getColor() == pile.getColor() ||
-			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 12)) {
+			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 11)) {
 
 			setCardInPile(card, isLeftTurn);
 			atleastOneCard++;
 		}
 		if ((playerDeckRight[card].getNumber() == 12 && PlusCardLimitPerTurn == 0 )&&((playerDeckRight[card].getColor() == pile.getColor() ||
-			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 12)) {
+			playerDeckRight[card].getNumber() == pile.getNumber()) || pile.getNumber() == 11)) {
 
 			setCardInPile(card, isLeftTurn);
 			atleastOneCard++;
