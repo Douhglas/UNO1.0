@@ -8,7 +8,7 @@
 #include "Menu.h"
 #include "Card.h"
 
-// card functions
+
 // init 8 cards per deck
 //change buttons texture
 //UNO button
@@ -104,6 +104,7 @@ int main() {
 								atLeastOneCard = 0;
 								CardsOfTheSameNumberPerTurn = 0;
 								
+								card.checkZeroCardStatement();
 								card.checklimitPlusCard(pluscCardLimitperTurn);
 								card.checkStatementPlusCard(pluscCardLimitperTurn);
 								if (card.getPile().getNumber() == 10 || card.getPile().getNumber() == 11) {
@@ -118,6 +119,7 @@ int main() {
 								CardsOfTheSameNumberPerTurn = 0;
 								atLeastOneCard = 0;
 
+								card.checkZeroCardStatement();
 								card.checklimitPlusCard(pluscCardLimitperTurn);
 								card.checkStatementPlusCard(pluscCardLimitperTurn);
 								if (card.getPile().getNumber() == 10 || card.getPile().getNumber() == 11) {
@@ -132,6 +134,9 @@ int main() {
 							card.printPileColorAnsNUmber();
 							card.showCardsToEat(isLeftTurn,atLeastOneCard);
 						}
+					//	if (even.key.code == sf::Keyboard::Z) {
+					//		card.swapDecks();
+					//	}
 					}
 					if (even.type == even.MouseButtonPressed) {
 						for (int i = 0; i < 20; i++){ 

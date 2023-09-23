@@ -306,16 +306,16 @@ void Deck::removeCardFromPLayerDeck(int card, bool isLeftTurn)
 {
 	if (isLeftTurn == true) {
 
-		playerDeckLeft[card].setColor(4);
-		playerDeckLeft[card].setNumber(0);
+		playerDeckLeft[card].setColor(101);
+		playerDeckLeft[card].setNumber(101);
 		playerDeckLeft[card].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
 	}
 	if (isLeftTurn == false) {
 
-		playerDeckRight[card].setColor(4);
-		playerDeckRight[card].setNumber(0);
+		playerDeckRight[card].setColor(101);
+		playerDeckRight[card].setNumber(101);
 		playerDeckRight[card].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
@@ -528,6 +528,60 @@ void Deck::setNormalCardInPile(int card, bool isLeftTurn, int& atleastOneCard, i
 		}
 	}
 }
+
+void Deck::swapDecks()
+{
+	DeckShape auxShape;
+	for (int i = 0; i < 20; i++) {
+
+		int PosAux[20];
+		PosAux[i] = emptyposLeft[i];
+		emptyposLeft[i] = emptyposRight[i];
+		emptyposRight[i] = PosAux[i];
+
+		int auxColor = playerDeckLeft[i].getColor();
+		int auxNumber = playerDeckLeft[i].getNumber();
+
+		playerDeckLeft[i].setTextureRectt(sizeOfDecksTexture.x * playerDeckRight[i].getNumber(), sizeOfDecksTexture.y * playerDeckRight[i].getColor(),
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+		playerDeckLeft[i].setColor(playerDeckRight[i].getColor());
+
+		playerDeckLeft[i].setNumber(playerDeckRight[i].getNumber());
+
+		if (playerDeckRight[i].getColor() == 6 && playerDeckRight[i].getNumber() == 14) {
+			
+			playerDeckLeft[i].setTextureRectt(sizeOfDecksTexture.x * 13, sizeOfDecksTexture.y * 5,
+				sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+		}
+
+
+		playerDeckRight[i].setTextureRectt(sizeOfDecksTexture.x * auxNumber, sizeOfDecksTexture.y * auxColor,
+			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+
+		playerDeckRight[i].setColor(auxColor);
+
+		playerDeckRight[i].setNumber(auxNumber);
+
+		if (auxColor == 6 && auxNumber == 14) {
+			
+			playerDeckRight[i].setTextureRectt(sizeOfDecksTexture.x * 13, sizeOfDecksTexture.y * 5,
+				sizeOfDecksTexture.x, sizeOfDecksTexture.y);
+		}
+
+
+	}
+}
+
+void Deck::checkZeroCardStatement()
+{
+	if (pile.getNumber() == 0) {
+		swapDecks();
+	}
+}
+
+
+
 
 
 

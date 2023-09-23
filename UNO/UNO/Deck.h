@@ -40,10 +40,6 @@ private:
 
 	void initSizeOfDecksTexture();
 
-
-
-
-
 public:
 
 	Deck(sf::RenderWindow* window);
@@ -90,6 +86,10 @@ public:
 	void setSpecialCardInPile(int card,bool isLeftTurn, int& atleastOneCard, int& CardsOfTheSameNumberPerTurn, int& PlusCardLimitPerTurn);
 
 	void setNormalCardInPile(int card , bool isLeftTurn , int& atleastOneCard, int& CardsOfTheSameNumberPerTurn);
+
+	void swapDecks();
+
+	void checkZeroCardStatement();
 
 };
 

@@ -43,5 +43,7 @@ public:
 	void checklimitPlusCard(int& plusCardLimitPerTurn);
 
 	void checkLostTurnCard(bool& isLeftTurn);
+
+	
 };
 
