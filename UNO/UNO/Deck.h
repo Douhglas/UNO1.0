@@ -7,10 +7,12 @@ using namespace std;
 class Deck: public Menu
 {
 private:
+	
+	static const int DECKSIZE= 24;
 
-	int emptyposLeft[20];
+	int emptyposLeft[DECKSIZE];
 
-	int emptyposRight[20];
+	int emptyposRight[DECKSIZE];
 
 	sf::Texture MainDeckTexture;
 
@@ -20,9 +22,9 @@ private:
 
     DeckShape pile;
 
-	DeckShape playerDeckLeft[20];
+	DeckShape playerDeckLeft[DECKSIZE];
 
-	DeckShape playerDeckRight[20];
+	DeckShape playerDeckRight[DECKSIZE];
 
 	sf::Vector2u sizeOfDecksTexture;
 

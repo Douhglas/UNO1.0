@@ -5,10 +5,6 @@ class Menu : public Game
 {
 private:
 
-	bool singlePlayer;
-
-	bool multiplayer;
-
 	MenuShape buttons[5];
 
 public:
@@ -29,5 +25,6 @@ public:
 
 	bool isButtonPressed(sf::RectangleShape shape, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve);
 
+	void RemoveButton(int button);
 };
 

@@ -9,7 +9,7 @@
 #include "Card.h"
 
 
-// init 8 cards per deck
+
 //change buttons texture
 //UNO button
 
@@ -90,6 +90,7 @@ int main() {
 						card.initPileCard(color,numCard );
 						card.init8CardsPerDeck();
 						startGame = true;
+						card.RemoveButton(2);
 					}
 					if (even.type == even.MouseButtonPressed) {
 						if (card.mainDeckIsPressed(window, mouse, even)) {
@@ -140,7 +141,7 @@ int main() {
 					//	}
 					}
 					if (even.type == even.MouseButtonPressed) {
-						for (int i = 0; i < 20; i++){ 
+						for (int i = 0; i < 24; i++){ 
 							{
 							    if (card.playerDeckIsPressed(isLeftTurn,i,window, mouse, even)) {
 								  card.printPileColorAnsNUmber(i, isLeftTurn);
@@ -159,9 +160,10 @@ int main() {
 
 				if (startGame) {
 					card.drawDecks(&window);
+					card.drawOptions(3, &window);
 				}
 				else {
-					card.drawOptions(1, &window);
+					card.drawOptions(2, &window);
 				}
 
 				window.display();

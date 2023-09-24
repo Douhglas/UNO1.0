@@ -3,7 +3,7 @@
 Deck::Deck(sf::RenderWindow* window): Menu(*window)
 {
 
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < DECKSIZE; i++) {
 		emptyposLeft[i] = 0;
 		emptyposRight[i] = 0;
 	}
@@ -105,9 +105,9 @@ void Deck::initPlayerDeckLeft()
 
 		decksPos.x = 30;
 		
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < 6; j++) {
 
-			playerDeckLeft[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 75), decksPos.y), sf::Vector2f(70,90));
+			playerDeckLeft[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 70), decksPos.y), sf::Vector2f(65,85));
 			aux++;
 
 		}
@@ -118,16 +118,16 @@ void Deck::initPlayerDeckLeft()
 
 void Deck::initPlayersDecksTexture()
 {
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < DECKSIZE; i++) {
 
 		playerDeckLeft[i].setTexture(&playersDeckTexture);
 
 		playerDeckRight[i].setTexture(&playersDeckTexture);
 
-		playerDeckLeft[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 5,
+		playerDeckLeft[i].setTextureRectt(sizeOfDecksTexture.x * 101, sizeOfDecksTexture.y * 101,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
-		playerDeckRight[i].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 5,
+		playerDeckRight[i].setTextureRectt(sizeOfDecksTexture.x * 101, sizeOfDecksTexture.y * 101,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
 	}
@@ -144,9 +144,9 @@ void Deck::initPlayerDeckRight()
 
 		decksPos.x = 745;
 
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < 6; j++) {
 
-			playerDeckRight[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 75), decksPos.y),sf::Vector2f(70,90));
+			playerDeckRight[aux].initDeckShape(sf::Vector2f(decksPos.x + (j * 70), decksPos.y),sf::Vector2f(65,85));
 
 			aux++;
 		}
@@ -170,7 +170,7 @@ void Deck::drawDecks(sf::RenderWindow* window)
 
 	window->draw(pile.getDeckShape());
 
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < DECKSIZE; i++) {
 
 		window->draw(playerDeckLeft[i].getDeckShape());
 
@@ -182,8 +182,9 @@ void Deck::drawDecks(sf::RenderWindow* window)
 
 int Deck::checkEmptyPos(bool isleftTurn)
 {
+
 	if (isleftTurn == true) {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < DECKSIZE; i++) {
 			if (emptyposLeft[i] == 0) {
 
 				emptyposLeft[i] = 1;
@@ -192,8 +193,9 @@ int Deck::checkEmptyPos(bool isleftTurn)
 			}
 		}
 	}
+
 	if (isleftTurn == false) {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < DECKSIZE; i++) {
 			if (emptyposRight[i] == 0) {
 
 				emptyposRight[i] = 1;
@@ -202,7 +204,6 @@ int Deck::checkEmptyPos(bool isleftTurn)
 			}
 		}
 	}
-	
 }
 
 void Deck::setDeckPLayerTextureRect(int color, int numcard, bool isLeftTurn)
@@ -308,7 +309,7 @@ void Deck::removeCardFromPLayerDeck(int card, bool isLeftTurn)
 
 		playerDeckLeft[card].setColor(101);
 		playerDeckLeft[card].setNumber(101);
-		playerDeckLeft[card].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+		playerDeckLeft[card].setTextureRectt(sizeOfDecksTexture.x * 101, sizeOfDecksTexture.y * 101,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
 	}
@@ -316,7 +317,7 @@ void Deck::removeCardFromPLayerDeck(int card, bool isLeftTurn)
 
 		playerDeckRight[card].setColor(101);
 		playerDeckRight[card].setNumber(101);
-		playerDeckRight[card].setTextureRectt(sizeOfDecksTexture.x * 0, sizeOfDecksTexture.y * 4,
+		playerDeckRight[card].setTextureRectt(sizeOfDecksTexture.x * 101, sizeOfDecksTexture.y * 101,
 			sizeOfDecksTexture.x, sizeOfDecksTexture.y);
 
 	}
@@ -532,9 +533,9 @@ void Deck::setNormalCardInPile(int card, bool isLeftTurn, int& atleastOneCard, i
 void Deck::swapDecks()
 {
 	DeckShape auxShape;
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i <  DECKSIZE; i++) {
 
-		int PosAux[20];
+		int PosAux[DECKSIZE];
 		PosAux[i] = emptyposLeft[i];
 		emptyposLeft[i] = emptyposRight[i];
 		emptyposRight[i] = PosAux[i];
@@ -584,7 +585,7 @@ int Deck::AmountOfCardsInPLayerDeck(bool islefturn)
 {
 	int totalAmount = 0;
 	if (islefturn == true) {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < DECKSIZE; i++) {
 			if (emptyposLeft[i] == 1) {
 
 				totalAmount++;
@@ -594,7 +595,7 @@ int Deck::AmountOfCardsInPLayerDeck(bool islefturn)
 		return totalAmount;
     }
 	if (islefturn == false) {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < DECKSIZE; i++) {
 			if (emptyposRight[i] == 1) {
 
 				totalAmount++;
