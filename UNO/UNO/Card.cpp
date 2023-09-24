@@ -156,5 +156,26 @@ void Card::checkStatementPlusCard(int& plusCardLimitPerTurn)
 	}
 }
 
+void Card::init8CardsPerDeck()
+{
+	srand(time(NULL));
+	int color;
+	int number;
+	while (AmountOfCardsInPLayerDeck(true) < 8 || AmountOfCardsInPLayerDeck(false) < 8) {
+
+		color = rand() % 4;
+		number = rand() % 15;
+		if (AmountOfCardsInPLayerDeck(true) < 8) {
+			getTypeCard(color,number,true);
+		}
+		color = rand() % 4;
+		number = rand() % 15;
+
+	    if (AmountOfCardsInPLayerDeck(false) < 8) {
+				getTypeCard(color, number, false);
+		}
+	}
+}
+
 
 

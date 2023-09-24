@@ -91,5 +91,9 @@ public:
 
 	void checkZeroCardStatement();
 
+	int AmountOfCardsInPLayerDeck(bool islefturn);
+
+	
+
 };
 

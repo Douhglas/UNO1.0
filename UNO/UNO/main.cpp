@@ -77,7 +77,7 @@ int main() {
 				color = rand() % 4;
 				numCard = rand() % 15;
 
-			
+
 
 				while (window.pollEvent(even)) {
 					
@@ -88,6 +88,7 @@ int main() {
 					}
 					if (even.type == even.MouseButtonPressed && card.isButtonPressed(2, window, mouse, even)) {
 						card.initPileCard(color,numCard );
+						card.init8CardsPerDeck();
 						startGame = true;
 					}
 					if (even.type == even.MouseButtonPressed) {

@@ -580,6 +580,31 @@ void Deck::checkZeroCardStatement()
 	}
 }
 
+int Deck::AmountOfCardsInPLayerDeck(bool islefturn)
+{
+	int totalAmount = 0;
+	if (islefturn == true) {
+		for (int i = 0; i < 20; i++) {
+			if (emptyposLeft[i] == 1) {
+
+				totalAmount++;
+
+			}
+		}
+		return totalAmount;
+    }
+	if (islefturn == false) {
+		for (int i = 0; i < 20; i++) {
+			if (emptyposRight[i] == 1) {
+
+				totalAmount++;
+
+			}
+		}
+		return totalAmount;
+	}
+}
+
 
 
 
