@@ -2,14 +2,19 @@
 
 Menu::Menu(sf::RenderWindow& window)
 {
-	buttons[0].initButtons(sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 4),
+	buttons[0].initButtons( sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 4),
 		getOptionTexture1());
-	buttons[1].initButtons(sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 2),
-		getOptionTexture1());
-	buttons[2].initButtons(sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 3),
-		getOptionTexture1());
-	buttons[3].initButtons(sf::Vector2f(200, 125), sf::Vector2f(window.getSize().x / 2 - 100, window.getSize().y / 2),
-		getOptionTexture1());
+	buttons[1].initButtons( sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 2),
+		getOptionTexture2());
+	buttons[2].initButtons( sf::Vector2f(250, 150), sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 3),
+		getOptionTexture3());
+	buttons[3].initButtons( sf::Vector2f(200, 125), sf::Vector2f(window.getSize().x / 2 - 100, window.getSize().y / 2),
+		getOptionTexture4());
+	winner[0].initButtons(sf::Vector2f(400, 350), sf::Vector2f(50, window.getSize().y / 2),
+		getOptionTexture4());
+	winner[1].initButtons(sf::Vector2f(400, 350), sf::Vector2f(750, window.getSize().y / 2),
+		getOptionTexture4());
+
 }
 
 Menu::~Menu()
@@ -23,9 +28,19 @@ void Menu::drawOptions(sf::RenderWindow* window)
 	
 }
 
-void Menu::drawOptions(int buttonNum, sf::RenderWindow* window)
+void Menu::drawOptions(int buttonNum, sf::RenderWindow* window, bool endGame, bool isLeftTurn)
 {
-	window->draw(buttons[buttonNum].getButtonShape());
+	if (endGame == true) {
+		if (isLeftTurn) {
+			window->draw(winner[0].getButtonShape());
+		}
+		if (!isLeftTurn) {
+			window->draw(winner[1].getButtonShape());
+		}
+	}
+	else {
+		window->draw(buttons[buttonNum].getButtonShape());
+	}
 }
 
 bool Menu::isMouseOver(int button, sf::RenderWindow& window, sf::Mouse mouse)
@@ -66,7 +81,7 @@ bool Menu::isButtonPressed(sf::RectangleShape shape, sf::RenderWindow& window, s
 
 void Menu::RemoveButton(int button)
 {
-	buttons[button].initButtons(sf::Vector2f(10, 15), sf::Vector2f(0, 0), getOptionTexture1());
+	buttons[button].initButtons( sf::Vector2f(10, 15), sf::Vector2f(0, 0), getOptionTexture1());
 }
 
 

@@ -177,5 +177,35 @@ void Card::init8CardsPerDeck()
 	}
 }
 
+void Card::unoButtonPenalty(bool isleftTurn)
+{
+	srand(time(NULL));
+	int color;
+	int number;
+
+	if (isleftTurn == false) {
+		while (AmountOfCardsInPLayerDeck(false) < 3) {
+
+			color = rand() % 4;
+			number = rand() % 15;
+
+			if (AmountOfCardsInPLayerDeck(false) < 3) {
+				getTypeCard(color, number, false);
+			}
+		}
+	}
+	if (isleftTurn == true) {
+		while (AmountOfCardsInPLayerDeck(true) < 3) {
+
+			color = rand() % 4;
+			number = rand() % 15;
+
+			if (AmountOfCardsInPLayerDeck(true) < 3) {
+				getTypeCard(color, number, true);
+			}
+		}
+	}
+}
+
 
 

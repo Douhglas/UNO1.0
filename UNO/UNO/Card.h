@@ -45,5 +45,7 @@ public:
 	void checkLostTurnCard(bool& isLeftTurn);
 
 	void init8CardsPerDeck();
+
+	void unoButtonPenalty(bool isleftTurn);
 };
 

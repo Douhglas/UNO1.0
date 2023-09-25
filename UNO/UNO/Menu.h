@@ -5,7 +5,9 @@ class Menu : public Game
 {
 private:
 
-	MenuShape buttons[5];
+	MenuShape buttons[4];
+	MenuShape winner[2];
+
 
 public:
 
@@ -15,7 +17,7 @@ public:
 
 	void drawOptions( sf::RenderWindow* window);
 
-	void drawOptions( int buttonNum ,sf::RenderWindow* window);
+	void drawOptions( int buttonNum ,sf::RenderWindow* window, bool endGame, bool isLeftTurn);
 
 	bool isMouseOver(int button, sf::RenderWindow& window, sf::Mouse mouse);
 
