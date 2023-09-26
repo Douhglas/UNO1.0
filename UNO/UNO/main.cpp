@@ -16,7 +16,8 @@ void closeWindowSinglePlayer(sf::Event& even, sf::RenderWindow& window, bool& is
 
 void closeWindowMultiPlayer(sf::Event& even, sf::RenderWindow& window, bool& isMultiPlayer);
 
-void startGamee(sf::Event& even, sf::RenderWindow& window, Card& card, sf::Mouse& mouse, int& color, int& numCard, bool& startGame);
+void startGamee(sf::Event& even, sf::RenderWindow& window, Card& card, sf::Mouse& mouse, int& color, int& numCard, bool& startGame,
+	int& atLeastOneCard);
 
 void getCard(sf::Event& even, sf::RenderWindow& window, Card& card, sf::Mouse& mouse, int& color, int& numCard, bool& isEndGame, bool& isLeftTurn);
 
@@ -146,7 +147,7 @@ void singlePlayerWindow(sf::RenderWindow& window, Card& card, sf::Mouse& mouse, 
 
 				closeWindowSinglePlayer(even,window,isSinglePlayer);
 
-				startGamee(even,window,card,mouse,color,numCard,startGame);
+				startGamee(even,window,card,mouse,color,numCard,startGame,atLeastOneCard);
 
 				getCard(even, window, card, mouse, color, numCard, isEndGame, isLeftTurn);
 
@@ -219,7 +220,7 @@ void multiPlayerWindow(sf::RenderWindow& window, Card& card, sf::Mouse& mouse, b
 
 				closeWindowMultiPlayer(even,window,isMultiPlayer);
 
-				startGamee(even,window,card,mouse,color,numCard,startGame);
+				startGamee(even,window,card,mouse,color,numCard,startGame,atLeastOneCard);
 
 				getCard(even, window, card, mouse, color, numCard,isEndGame,isLeftTurn);
 
@@ -276,13 +277,18 @@ void closeWindowMultiPlayer(sf::Event& even, sf::RenderWindow& window, bool& isM
 	}
 }
 
-void startGamee(sf::Event& even, sf::RenderWindow& window, Card& card, sf::Mouse& mouse, int& color, int& numCard,bool& startGame)
+void startGamee(sf::Event& even, sf::RenderWindow& window, Card& card, sf::Mouse& mouse, int& color, int& numCard,bool& startGame,
+int& atLeastOneCard)
 {
 	if (even.type == even.MouseButtonPressed && card.isButtonPressed(2, window, mouse, even)) {
-		card.initPileCard(color, numCard);
+		card.initPileCard(color,numCard);
 		card.init8CardsPerDeck();
 		startGame = true;
 		card.RemoveButton(2);
+		card.checkIfFirstCardInPileIsSpecial(atLeastOneCard);
+		
+		
+		
 	}
 }
 

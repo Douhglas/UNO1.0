@@ -623,6 +623,17 @@ int Deck::AmountOfCardsInPLayerDeck(bool islefturn)
 	}
 }
 
+void Deck::checkIfFirstCardInPileIsSpecial(int& atleastOneCard)
+{
+	if (pile.getNumber() == 10 || pile.getNumber() == 11 || pile.getNumber() == 12 || pile.getNumber() == 13 ||
+		pile.getNumber() == 14 || pile.getNumber() == 0) {
+
+		atleastOneCard++;
+		
+	}
+	
+}
+
 
 
 

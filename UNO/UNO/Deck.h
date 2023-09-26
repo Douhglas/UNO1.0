@@ -97,7 +97,8 @@ public:
 
 	int AmountOfCardsInPLayerDeck(bool islefturn);
 
-	
+	void checkIfFirstCardInPileIsSpecial(int& atleastOneCard);
+
 
 };
 
