@@ -7,6 +7,7 @@ private:
 
 	MenuShape buttons[4];
 	MenuShape winner[2];
+	sf::Text text[6];
 
 
 public:
@@ -28,5 +29,7 @@ public:
 	bool isButtonPressed(sf::RectangleShape shape, sf::RenderWindow& window, sf::Mouse& mouse, sf::Event& eve);
 
 	void RemoveButton(int button);
+
+	
 };
 

@@ -5,6 +5,7 @@ using namespace std;
 Game::Game()
 {
 	initTextures();
+	if (!font.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\SovietProgram.ttf"));
 
 }
 
@@ -37,21 +38,26 @@ sf::Texture Game::getOptionTexture5()
 	return optionTexture5;
 }
 
+sf::Font Game::getFont()
+{
+	return font;
+}
+
 void Game::initTextures()
 {
-	if (!optionTexture1.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\SinglePlayer.png")) {
+	if (!optionTexture1.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Captura de pantalla 2023-09-26 082710.png")) {
 		cout << " ERROR optionTexture1" << endl;
 	}
-	if (!optionTexture2.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Multiplayer.png")) {
+	if (!optionTexture2.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Captura de pantalla 2023-09-26 082633.png")) {
 		cout << " ERROR optionTexture1" << endl;
 	}
-	if (!optionTexture3.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Play.png")) {
+	if (!optionTexture3.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Captura de pantalla 2023-09-26 082829.png")) {
 		cout << " ERROR optionTexture1" << endl;
 	}
-	if (!optionTexture4.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Winner.png")) {
+	if (!optionTexture4.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Captura de pantalla 2023-09-26 083803.png")) {
 		cout << " ERROR optionTexture1" << endl;
 	}
-	if (!optionTexture5.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Winner.png")) {
+	if (!optionTexture5.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Captura de pantalla 2023-09-26 083919.png")) {
 		cout << " ERROR optionTexture1" << endl;
 	}
 }

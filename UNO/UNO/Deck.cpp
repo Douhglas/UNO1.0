@@ -403,6 +403,23 @@ void Deck::checkStatementColorChange()
 
 }
 
+void Deck::checkStatementColorChange(int newColor)
+{
+	if (pile.getNumber() == 13) {
+
+
+		pile.setColor(newColor);
+		pile.setNumber(15);
+
+	}
+	if (pile.getNumber() == 14) {
+
+		pile.setColor(newColor);
+		pile.setNumber(16);
+
+	}
+}
+
 bool Deck::isCounterPlusCards(int pos, bool isLeftTurn)
 {
 	if (isLeftTurn == true) {

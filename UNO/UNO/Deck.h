@@ -83,6 +83,8 @@ public:
 
 	void checkStatementColorChange();
 
+	void checkStatementColorChange(int newColor);
+
 	bool isCounterPlusCards(int pos, bool isLeftTurn);
 
 	void setSpecialCardInPile(int card,bool isLeftTurn, int& atleastOneCard, int& CardsOfTheSameNumberPerTurn, int& PlusCardLimitPerTurn);

@@ -1,3 +1,3 @@
 ﻿  main.cpp
-C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\main.cpp(16,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\UNO\main.cpp(14,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   UNO.vcxproj -> C:\Users\Usuario\Desktop\UNO_1.0\UNO1.0\UNO\x64\Debug\UNO.exe
