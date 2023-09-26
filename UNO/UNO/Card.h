@@ -13,8 +13,6 @@ private:
 	int cards[AMOUNT_OF_COLORS][AMOUNT_OF_CARDS];
 
 	int numberOfCardsToEat;
-
-	int plusCardLimitPerTurn;
 	
 public:
 

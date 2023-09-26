@@ -7,7 +7,7 @@ private:
 
 	MenuShape buttons[4];
 	MenuShape winner[2];
-	sf::Text text[6];
+
 
 
 public:

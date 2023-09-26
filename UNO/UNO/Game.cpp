@@ -5,7 +5,6 @@ using namespace std;
 Game::Game()
 {
 	initTextures();
-	if (!font.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\SovietProgram.ttf"));
 
 }
 
@@ -38,10 +37,6 @@ sf::Texture Game::getOptionTexture5()
 	return optionTexture5;
 }
 
-sf::Font Game::getFont()
-{
-	return font;
-}
 
 void Game::initTextures()
 {

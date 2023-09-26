@@ -9,7 +9,7 @@ private:
 	sf::Texture optionTexture3;
 	sf::Texture optionTexture4;
 	sf::Texture optionTexture5;
-	sf::Font font;
+	
 
 public:
 	Game();
@@ -19,7 +19,6 @@ public:
 	sf::Texture getOptionTexture3();
 	sf::Texture getOptionTexture4();
 	sf::Texture getOptionTexture5();
-	sf::Font getFont();
 	void initTextures();
 
 };

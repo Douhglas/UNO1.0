@@ -11,15 +11,9 @@ Menu::Menu(sf::RenderWindow& window)
 	buttons[3].initButtons( sf::Vector2f(200, 125), sf::Vector2f(window.getSize().x / 2 - 100, window.getSize().y / 2),
 		getOptionTexture4());
 	winner[0].initButtons(sf::Vector2f(400, 350), sf::Vector2f(50, window.getSize().y / 2),
-		getOptionTexture4());
+		getOptionTexture5());
 	winner[1].initButtons(sf::Vector2f(400, 350), sf::Vector2f(750, window.getSize().y / 2),
-		getOptionTexture4());
-
-	text[0].setFont(getFont());
-	text[0].setScale(4, 6);
-	text[0].setPosition(sf::Vector2f(window.getSize().x / 2 - 125, window.getSize().y / 4));
-	text[0].setString("SinglePlayer");
-
+		getOptionTexture5());
 
 }
 
