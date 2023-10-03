@@ -7,13 +7,13 @@ Deck::Deck(sf::RenderWindow* window): Menu(*window)
 		emptyposLeft[i] = 0;
 		emptyposRight[i] = 0;
 	}
-
+//Debe usar rutas relativas, en mi pc ya no funciona
 	if (!playersDeckTexture.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\UNO.png")) {
-
+//Falta codigo
 	}
 
 	if (!MainDeckTexture.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\UNOBACK.jpg")) {
-
+//Falta codigo
 	}
 
 	initMainDeck(window);
@@ -185,6 +185,7 @@ int Deck::checkEmptyPos(bool isleftTurn)
 
 	if (isleftTurn == true) {
 		for (int i = 0; i < DECKSIZE; i++) {
+			//Anidaciones complejas
 			if (emptyposLeft[i] == 0) {
 
 				emptyposLeft[i] = 1;
@@ -282,6 +283,7 @@ void Deck::setCardInPile(int card , bool isLeftTurn)
 			emptyposLeft[card] = 0;
 		
 	}
+	//Extraer o simplificar en otra función
 	if (isLeftTurn == false) {
 		if (playerDeckRight[card].getNumber() == 14) {
 
@@ -422,12 +424,12 @@ void Deck::checkStatementColorChange(int newColor)
 
 bool Deck::isCounterPlusCards(int pos, bool isLeftTurn)
 {
-	if (isLeftTurn == true) {
+	if (isLeftTurn == true) {//Simplificar esto
 		if (playerDeckLeft[pos].getNumber() == 12 || playerDeckLeft[pos].getNumber() == 14) {
 			return true;
 		}
 	}
-	if (isLeftTurn == false) {
+	if (isLeftTurn == false) {//Simplificar esto
 		if (playerDeckRight[pos].getNumber() == 12 || playerDeckRight[pos].getNumber() == 14) {
 			return true;
 		}
@@ -476,6 +478,7 @@ void Deck::setSpecialCardInPile(int card, bool isLeftTurn, int& atleastOneCard, 
 
 
 	}
+	//Extraer en otra función
 	if (isLeftTurn == false) {
 
 		if (playerDeckRight[card].getNumber() == 0 && ((playerDeckRight[card].getColor() == pile.getColor() ||
@@ -603,6 +606,7 @@ int Deck::AmountOfCardsInPLayerDeck(bool islefturn)
 	int totalAmount = 0;
 	if (islefturn == true) {
 		for (int i = 0; i < DECKSIZE; i++) {
+			//Anidaciones complejas
 			if (emptyposLeft[i] == 1) {
 
 				totalAmount++;
@@ -625,6 +629,7 @@ int Deck::AmountOfCardsInPLayerDeck(bool islefturn)
 
 void Deck::checkIfFirstCardInPileIsSpecial(int& atleastOneCard)
 {
+	//Se encuentran expresiones booleanas complejas
 	if (pile.getNumber() == 10 || pile.getNumber() == 11 || pile.getNumber() == 12 || pile.getNumber() == 13 ||
 		pile.getNumber() == 14 || pile.getNumber() == 0) {
 

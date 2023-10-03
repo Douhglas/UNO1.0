@@ -5,10 +5,10 @@ class Menu : public Game
 {
 private:
 
-	MenuShape buttons[4];
+	MenuShape buttons[4];//Numeros mágicos
 	MenuShape winner[2];
 
-
+//Evitar estos espacios en blanco 
 
 public:
 

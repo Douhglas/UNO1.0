@@ -40,6 +40,9 @@ sf::Texture Game::getOptionTexture5()
 
 void Game::initTextures()
 {
+	//Reducir el string con una variable path y concatenacion
+	//String path= "C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\";
+	//if (!optionTexture1.loadFromFile(path+"Captura de pantalla 2023-09-26 082710.png")) {...
 	if (!optionTexture1.loadFromFile("C:\\Users\\Usuario\\Desktop\\UNO_1.0\\UNO1.0\\UNO\\Textures\\Captura de pantalla 2023-09-26 082710.png")) {
 		cout << " ERROR optionTexture1" << endl;
 	}

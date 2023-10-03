@@ -3,7 +3,7 @@
 #include <time.h>
 #include "Card.h"
 using namespace std;
-
+//Debe mover la logica a objetos fuera del main
 void MenuWindow(sf::RenderWindow& window, Card& card, sf::Mouse& mouse, bool& isRunningGame, bool& isSinglePlayer, bool& isMultiPlayer);
 
 void singlePlayerWindow(sf::RenderWindow& window, Card& card, sf::Mouse& mouse, bool& isRunningGame, bool& isSinglePlayer, bool& isLeftTurn,

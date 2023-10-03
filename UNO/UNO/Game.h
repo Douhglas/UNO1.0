@@ -8,7 +8,7 @@ private:
 	sf::Texture optionTexture2;
 	sf::Texture optionTexture3;
 	sf::Texture optionTexture4;
-	sf::Texture optionTexture5;
+	sf::Texture optionTexture5; //Usar un array
 	
 
 public:

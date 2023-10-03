@@ -2,7 +2,7 @@
 #include "Deck.h"
 #include <time.h>
 
-class Card: public Deck
+class Card: public Deck //Realmente esto no tiene logica en la abstraccion, debe revisar los nombres
 {
 private:
 

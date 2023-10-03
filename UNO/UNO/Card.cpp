@@ -17,13 +17,13 @@ void Card::initAmountOfCards()
 		for (int j = 0; j < AMOUNT_OF_CARDS; j++) {
 
 			cards[i][j] = 2;
-
+// Anidaciones complejas
 			if (j == 0 ) {
 
 				cards[i][j] = 1;
 
 			}
-			if (j == 13 || j == 14){
+			if (j == 13 || j == 14){//Usa numeros magicos
 
 				cards[i][j] = 4;
 			}
@@ -40,12 +40,12 @@ void Card::initAmountOfCards()
 void Card::getTypeCard(int color, int numcard, bool isLeftturn)
 {
 	
-	if (numcard == 13 || numcard == 14) {
+	if (numcard == 13 || numcard == 14) {//Usa numeros magicos
 
 		getSpecialCardFromMainDeck(color, numcard,isLeftturn);
 
 	}
-	else {
+	else {//Else innecesarios
 		if (cards[color][numcard] > 0) {
 
 			getNormalCardFromMainDeck(color, numcard,isLeftturn);
@@ -106,7 +106,7 @@ void Card::initPileCard(int color, int numcard)
 
 bool Card::isNotCardsToEat()
 {
-	if (numberOfCardsToEat == 0){
+	if (numberOfCardsToEat == 0){//Puede simplificar esta expresion innecesaria
 		return true;
 }
 	return false;
@@ -127,7 +127,7 @@ void Card::showCardsToEat(bool isLeftTurn,int atleastOneCard)
 
 void Card::checkLostTurnCard(bool& isLeftTurn)
 {
-	if (isLeftTurn == true) {
+	if (isLeftTurn == true) {//Puede simplificar esta expresion innecesaria
 
 		isLeftTurn = false;
     }
@@ -146,12 +146,12 @@ void Card::checklimitPlusCard(int& plusCardLimitPerTurn)
 
 void Card::checkStatementPlusCard(int& plusCardLimitPerTurn)
 {
-	if (getPile().getNumber() == 12) {
+	if (getPile().getNumber() == 12) {//Usa numeros magicos
 		numberOfCardsToEat += 2;
 		plusCardLimitPerTurn = 1;
 
 	}
-	if(getPile().getNumber() == 16){
+	if(getPile().getNumber() == 16){//Usa numeros magicos
 		numberOfCardsToEat += 4;
 	}
 }
@@ -161,7 +161,7 @@ void Card::init8CardsPerDeck()
 	srand(time(NULL));
 	int color;
 	int number;
-	while (AmountOfCardsInPLayerDeck(true) < 8 || AmountOfCardsInPLayerDeck(false) < 8) {
+	while (AmountOfCardsInPLayerDeck(true) < 8 || AmountOfCardsInPLayerDeck(false) < 8) {//Usa numeros magicos
 
 		color = rand() % 4;
 		number = rand() % 15;
@@ -188,7 +188,7 @@ void Card::unoButtonPenalty(bool isleftTurn)
 
 			color = rand() % 4;
 			number = rand() % 15;
-
+			//Anidaciones complejas
 			if (AmountOfCardsInPLayerDeck(false) < 3) {
 				getTypeCard(color, number, false);
 			}
@@ -199,7 +199,7 @@ void Card::unoButtonPenalty(bool isleftTurn)
 
 			color = rand() % 4;
 			number = rand() % 15;
-
+			//Anidaciones complejas
 			if (AmountOfCardsInPLayerDeck(true) < 3) {
 				getTypeCard(color, number, true);
 			}

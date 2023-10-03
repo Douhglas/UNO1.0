@@ -4,10 +4,10 @@
 #include "DeckShape.h"
 #include "Menu.h"
 using namespace std;
-class Deck: public Menu
+class Deck: public Menu //Esto no tiene sentido
 {
 private:
-	
+	//Clases infladas
 	static const int DECKSIZE= 24;
 
 	int emptyposLeft[DECKSIZE];
